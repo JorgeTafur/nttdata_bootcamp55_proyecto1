@@ -21,5 +21,5 @@ public class Account {
     private String tipoCuenta;
 
     @Column(name = "cliente_id")
-    private Long clienteId;
+    private Integer clienteId;
 }

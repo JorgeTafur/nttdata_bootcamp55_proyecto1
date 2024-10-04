@@ -20,6 +20,9 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account createAccount(Account account) {
+        if (account.getSaldo() <= 0) {
+            throw new IllegalArgumentException("El saldo inicial debe ser mayor a 0.");
+        }
         return accountRepository.save(account);
     }
 
@@ -50,6 +53,7 @@ public class AccountServiceImpl implements AccountService {
             account.setSaldo(account.getSaldo() - amount);
             return accountRepository.save(account);
         }
+
         return null;
     }
 }

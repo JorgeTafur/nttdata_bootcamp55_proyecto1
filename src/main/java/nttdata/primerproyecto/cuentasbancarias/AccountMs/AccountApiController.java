@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/accounts")
+@RequestMapping("/cuentas")
 public class AccountApiController {
 
     private final AccountService accountService;
@@ -51,16 +51,15 @@ public class AccountApiController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    // Depositar dinero en una cuenta
-    @PostMapping("/{id}/deposit")
-    public ResponseEntity<Account> deposit(@PathVariable Integer id, @RequestParam Double amount) {
+    @PutMapping("/{id}/deposit")
+    public ResponseEntity<Account> deposit(@PathVariable Integer id, @RequestBody Double amount) {
         Account updatedAccount = accountService.deposit(id, amount);
         return new ResponseEntity<>(updatedAccount, HttpStatus.OK);
     }
 
     // Retirar dinero de una cuenta
-    @PostMapping("/{id}/withdraw")
-    public ResponseEntity<Account> withdraw(@PathVariable Integer id, @RequestParam Double amount) {
+    @PutMapping("/{id}/withdraw")
+    public ResponseEntity<Account> withdraw(@PathVariable Integer id, @RequestBody Double amount) {
         Account updatedAccount = accountService.withdraw(id, amount);
         return new ResponseEntity<>(updatedAccount, HttpStatus.OK);
     }

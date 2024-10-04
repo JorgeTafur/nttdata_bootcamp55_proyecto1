@@ -8,6 +8,8 @@ servers:
 paths:
   /clientes:
     get:
+      tags:
+        - cliente
       summary: Listar todos los clientes
       operationId: listCustomers
       responses:
@@ -22,6 +24,8 @@ paths:
         'default':
           description: Error en la obtención de clientes
     post:
+      tags:
+        - cliente
       summary: Crear nuevo cliente
       operationId: createCustomer
       requestBody:
@@ -38,6 +42,8 @@ paths:
 
   /clientes/{id}:
     get:
+      tags:
+        - cliente
       summary: Obtener cliente por su ID
       operationId: getCustomerById
       parameters:
@@ -56,6 +62,8 @@ paths:
         'default':
           description: Error en la obtención del cliente
     put:
+      tags:
+        - cliente
       summary: Actualizar cliente por su ID
       operationId: updateCustomerById
       parameters:
@@ -76,6 +84,8 @@ paths:
         'default':
           description: Error en la actualización del cliente
     delete:
+      tags:
+        - cliente
       summary: Eliminar cliente por su ID
       operationId: deleteCustomerById
       parameters:
@@ -92,6 +102,8 @@ paths:
 
   /cuentas:
     get:
+      tags:
+        - cuenta
       summary: Listar todas las cuentas
       operationId: listAccounts
       responses:
@@ -106,6 +118,8 @@ paths:
         'default':
           description: Error en la obtención de cuentas
     post:
+      tags:
+        - cuenta
       summary: Crear una nueva cuenta
       operationId: createAccount
       requestBody:
@@ -122,6 +136,8 @@ paths:
 
   /cuentas/{id}:
     get:
+      tags:
+        - cuenta
       summary: Obtener cuenta por su ID
       operationId: getAccountById
       parameters:
@@ -140,6 +156,8 @@ paths:
         'default':
           description: Error en la obtención de la cuenta
     delete:
+      tags:
+        - cuenta
       summary: Eliminar cuenta por su ID
       operationId: deleteAccountById
       parameters:
@@ -156,6 +174,8 @@ paths:
 
   /cuentas/{id}/depositar:
     put:
+      tags:
+        - cuenta
       summary: Depositar dinero en una cuenta
       operationId: depositIntoAccount
       parameters:
@@ -182,6 +202,8 @@ paths:
 
   /cuentas/{id}/retirar:
     put:
+      tags:
+        - cuenta
       summary: Retirar dinero de una cuenta
       operationId: withdrawFromAccount
       parameters:

@@ -20,6 +20,9 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer createCustomer(Customer customer) {
+        if (customerRepository.existsByDni(customer.getDni())) {
+            throw new IllegalArgumentException("El DNI ya está en uso.");
+        }
         return customerRepository.save(customer);
     }
 
