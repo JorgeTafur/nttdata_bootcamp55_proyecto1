@@ -18,7 +18,7 @@ public class Account {
 
     private String numeroCuenta;
     private Double saldo;
-    private String tipoCuenta;
+    private TipoCuenta tipoCuenta;
 
     @Column(name = "cliente_id")
     private Integer clienteId;
